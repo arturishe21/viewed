@@ -1,3 +1,4 @@
+# Пакет для функционала просмотренных товаров(страниц)
 
 В composer.json добавляем в блок require
 ```json
@@ -16,7 +17,7 @@ composer update
 
 В модель добавляем  trait
 ```php
-  \Vis\Builder\Helpers\Traits\QuickEditTrait
+  use \Vis\Viewed\ViewedTrait;
 ```
 
 Теперь можем использовать методы данного трейта в наших моделях, так
