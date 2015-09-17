@@ -15,16 +15,13 @@ composer update
   'Vis\Viewed\ViewedServiceProvider',
 ```
 
-В модель добавляем  trait
-```php
-  use \Vis\Viewed\ViewedTrait;
-```
-
-Теперь можем использовать методы данного трейта в наших моделях, так
 ```php
    //добавить в список просмотренных
-   $page->setViewed();
+   Viewed::setViewed($model);
 
-   //просмотреть список просмотренных
-   $page->getViewed();
+   //просмотреть список просмотренных id
+   Viewed::getViewed($model);
+
+   //вернуть список записей модели
+   Viewed::getViewedWithModel($model);
 ```

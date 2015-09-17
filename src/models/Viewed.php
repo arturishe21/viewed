@@ -34,4 +34,24 @@ class Viewed
 
         return $cookies;
     }
+
+    public function getViewedWithModel($model)
+    {
+        $idsModel = $this->getViewed($model);
+        $nameClass = strtolower(get_class($model));
+
+        if (count($idsModel) && $idsModel) {
+            $implodeViewedProductsIds = implode(",", $idsModel);
+
+            $viewed_products = $nameClass::whereIn("id", $idsModel)
+                ->active()
+                ->orderByRaw("FIELD(id, $implodeViewedProductsIds)")->get();
+
+            return $viewed_products;
+        } else {
+
+            return false;
+        }
+
+    }
 }
