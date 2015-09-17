@@ -13,7 +13,8 @@
     },
     "autoload": {
         "classmap": [
-            "src/traits"
+            "src/models",
+            "src/facades"
         ],
         "psr-0": {
             "Vis\\Viewed\\": "src/"
